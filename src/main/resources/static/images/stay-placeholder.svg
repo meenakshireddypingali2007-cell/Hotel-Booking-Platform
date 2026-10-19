@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" role="img" aria-label="StayHaven landscape placeholder">
+  <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#d7e2d5"/><stop offset="1" stop-color="#f3e9d8"/></linearGradient><linearGradient id="hill" x2="0" y2="1"><stop stop-color="#9db39c"/><stop offset="1" stop-color="#617e6e"/></linearGradient></defs>
+  <rect width="1200" height="700" fill="url(#sky)"/><circle cx="930" cy="160" r="65" fill="#d3a76e" opacity=".82"/>
+  <path d="M0 470 270 290l250 180 220-210 460 300v140H0Z" fill="#b8c8b5"/><path d="m0 560 330-190 250 220 300-210 320 160v160H0Z" fill="url(#hill)"/>
+  <path d="M430 390h350v230H430z" fill="#f8f6ef"/><path d="m390 405 215-175 215 175Z" fill="#315b4e"/><path d="M485 440h80v100h-80zm160 0h80v100h-80zM570 510h70v110h-70z" fill="#9bb39f"/>
+  <text x="60" y="650" fill="#17352f" font-family="Arial,sans-serif" font-size="25" letter-spacing="6">STAYHAVEN</text>
+</svg>

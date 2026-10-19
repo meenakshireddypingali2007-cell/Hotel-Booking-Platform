@@ -1,0 +1,12 @@
+target/
+.classpath
+.project
+.settings/
+.vscode/
+*.log
+.env
+.env.*
+!.env.example
+# Local database files
+data/*.db
+data/*.db-*

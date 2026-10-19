@@ -1,0 +1,15 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Room service | StayHaven</title><link rel="stylesheet" href="/css/site.css"></head>
+<body class="admin-body"><div th:replace="~{fragments/admin-nav}"></div><main class="admin-main">
+<p class="eyebrow">GUEST SERVICES</p><h1>Room service</h1>
+<div th:if="${success}" class="alert success" th:text="${success}"></div><div th:if="${error}" class="alert error" th:text="${error}"></div>
+<section class="admin-section"><h2>Create an order for an in-house guest</h2>
+<form class="filter-bar" action="/admin/room-service" method="post">
+<select name="bookingId" required th:disabled="${#lists.isEmpty(bookings)}"><option value="" th:text="${#lists.isEmpty(bookings) ? 'No checked-in guests available' : 'Select booking'}"></option><option th:each="b:${bookings}" th:value="${b.id}" th:text="${b.guestName} + ' · Room ' + ${b.roomUnit.roomNumber} + ' · ' + ${b.reference}"></option></select>
+<select name="item"><option>Breakfast</option><option>Lunch tray</option><option>Dinner tray</option><option>Laundry bag</option><option>Extra towels</option></select><input type="number" name="quantity" min="1" max="20" value="1"><button class="small-button" th:disabled="${#lists.isEmpty(bookings)}">Place order</button></form>
+<p class="muted" th:if="${#lists.isEmpty(bookings)}">Room service is available for guests who are checked in and assigned an occupied room.</p></section>
+<div class="table-wrap"><table><thead><tr><th>Placed</th><th>Guest / room</th><th>Item</th><th>Qty</th><th>Total</th><th>Status</th><th>Update</th></tr></thead><tbody>
+<tr th:each="o:${orders}"><td th:text="${o.createdAt}"></td><td th:text="${o.booking.guestName} + ' / ' + ${o.roomUnit.roomNumber}"></td><td th:text="${o.itemName}"></td><td th:text="${o.quantity}"></td><td th:text="'₹' + ${o.total}"></td><td th:text="${o.status}"></td><td><form th:action="@{/admin/room-service/{id}/status(id=${o.id})}" method="post"><select name="status"><option>PREPARING</option><option>DELIVERED</option><option>CANCELLED</option></select><button class="small-button">Save</button></form></td></tr>
+<tr th:if="${#lists.isEmpty(orders)}"><td colspan="7">No room-service orders yet.</td></tr></tbody></table></div>
+</main></body></html>

@@ -1,0 +1,10 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Records unavailable | StayHaven</title><link rel="stylesheet" href="/css/site.css"></head>
+<body class="admin-body">
+<div th:if="${adminRequest}" th:replace="~{fragments/admin-nav}"></div>
+<div th:unless="${adminRequest}" th:replace="~{fragments/nav}"></div>
+<main class="section page"><p class="eyebrow">TEMPORARY DATA ERROR</p><h1>We couldn't load these records.</h1>
+<p class="muted">The database request failed. Your saved records have not been replaced. Please retry in a moment.</p>
+<a class="button" th:href="${retryUrl}">Try again</a>
+</main></body></html>
